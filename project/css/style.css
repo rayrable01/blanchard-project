@@ -111,6 +111,16 @@ a {
   justify-content: flex-start;
 }
 
+.header__logo {
+  outline: none;
+  border: none;
+}
+
+.header__logo:focus {
+  outline: 2px solid #9D5CD0;
+  outline-offset: 5px;
+}
+
 .header__nav {
   margin-right: auto;
 }
@@ -195,6 +205,7 @@ a {
   background-image: url(../img/heroimg.jpg);
   background-repeat: no-repeat;
   background-position: center center;
+  background-size: cover;
 }
 
 .hero__container {
@@ -290,6 +301,7 @@ a {
   background-image: url(../img/galleryback.jpg);
   background-repeat: no-repeat;
   background-position: center center;
+  background-size: cover;
 }
 
 .gallery__container {
@@ -318,11 +330,29 @@ a {
 }
 
 .gallery__left label {
+  cursor: pointer;
   font-weight: 400;
   font-size: 16px;
   line-height: 200%;
   color: var(--white-color);
   align-items: center;
+  transition: color 0.1s ease-in-out;
+}
+
+.gallery__form-input:focus + .custom-checkbox {
+  border-color: #c283f3; /* Можно добавить или изменить цвет границы при фокусе */
+}
+
+.gallery__label:hover .custom-checkbox {
+  border-color: #c283f3; /* использовать псевдокласс :focus-within, чтобы изменить цвет текста внутри метки, когда любой дочерний элемент метки получает фокус */
+}
+
+.gallery__label:focus-within {
+  color: #c283f3;
+}
+
+.gallery__label:active {
+  color: #c283f3;
 }
 
 .gallery__form-input {
@@ -332,6 +362,7 @@ a {
   position: absolute;
   z-index: -1;
 }
+
 
 .gallery__form-input:checked + .custom-checkbox::before {
   transform: translate(-50%, -50%) scale(1);
@@ -462,10 +493,14 @@ a {
   min-height: 700px;
 }
 
+.events__picture {
+  vertical-align: top;
+}
+
 .events__content {
   display: flex;
   padding: 13px 50px 41px 50px;
-  min-height: 396px;
+  height: 100%;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
